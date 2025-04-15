@@ -14,8 +14,6 @@ Aadil Tanwir, Naman Rajoria, Rayna Singh, Soumya Saboo, Sriharshitha Bhagvati
 
 :::
 
-[Download Trial ZIP file](assets/triaL_nn.zip)
-
 [Download Train ZIP file](assets/train_nn.zip)
 
 [Download Test ZIP file](assets/test_nn.zip)

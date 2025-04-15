@@ -2,10 +2,6 @@
 
 ------------------------------------------------------------------------
 
-<button>[MudraNet]{.button_top}</button>
-
-------------------------------------------------------------------------
-
 Aadil Tanwir, Naman Rajoria, Rayna Singh, Soumya Saboo, Sriharshitha Bhagvati
 
 :::: <iframe src="https://editor.p5js.org/rayna20singh20/full/QCes-2bBh" width="800" height="600" style="border: none;">

@@ -1,8 +1,14 @@
-## A2.
+---
+title: "A2"
+author: "Aadil Tanwir, Naman Rajoria, Rayna Singh, Soumya Saboo, Sriharshitha Bhagvati"
+date: "2025-04-25"
+categories: [blog]
+image: "thumbnail.png"
+---
 
-------------------------------------------------------------------------
 
-Aadil Tanwir, Naman Rajoria, Rayna Singh, Soumya Saboo, Sriharshitha Bhagvati
+
+Our A2 explores how machine learning can recognize five classical mudras using hand gesture detection, and play a specific song for each one.
 
 :::: <iframe src="https://editor.p5js.org/rayna20singh20/full/QCes-2bBh" width="800" height="600" style="border: none;">
 
@@ -13,8 +19,6 @@ Aadil Tanwir, Naman Rajoria, Rayna Singh, Soumya Saboo, Sriharshitha Bhagvati
 [Download Train ZIP file](assets/train_nn.zip)
 
 [Download Test ZIP file](assets/test_nn.zip)
-
-Our a2 explores how machine learning can recognize five classical mudras using hand gesture detection, and play a specific song for each one.
 
 *Process*
 
@@ -37,7 +41,7 @@ Creating the first CSV using Python was pretty simple.
 
 The challenge started when we wrote a JS sketch to read that CSV and output the 21 keypoints for all the images. Initially, it was only giving us values for one image, or just the headings (x1, y1... x21, y21, label) but no actual values. We figured this was because the function to read all rows was in preload(), which runs too early the model takes time to train and wasn’t ready yet, so it only had time to process the first row. Once we moved that part to setup(), everything worked fine and we got the full CSV with coordinates. Another small mistake was that we were usign an older ml5js verson and that was causing a few errors.
 
-Training
+*Training*
 
 A few images just wouldn’t get detected, especially ones where the hands had paint or black charcoal. We had to delete those.
 

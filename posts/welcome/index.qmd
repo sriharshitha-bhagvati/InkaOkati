@@ -39,7 +39,7 @@ Handpose detection on a single image worked perfectly we were able to extract 21
 
 Creating the first CSV using Python was pretty simple.
 
-The challenge started when we wrote a JS sketch to read that CSV and output the 21 keypoints for all the images. Initially, it was only giving us values for one image, or just the headings (x1, y1... x21, y21, label) but no actual values. We figured this was because the function to read all rows was in preload(), which runs too early the model takes time to train and wasn’t ready yet, so it only had time to process the first row. Once we moved that part to setup(), everything worked fine and we got the full CSV with coordinates. Another small mistake was that we were usign an older ml5js verson and that was causing a few errors.
+The challenge started when we wrote a JS sketch to read that CSV and output the 21 keypoints for all the images. Initially, it was only giving us values for one image, or just the headings (x1, y1... x21, y21, label) but no actual values. We figured this was because the function to read all rows was in preload(), which runs too early the model takes time to train and wasn’t ready yet, so it only had time to process the first row. Once we moved that part to setup(), everything worked fine and we got the full CSV with coordinates. Another small mistake was that we were usign an older ml5js version and that was causing a few errors.
 
 *Training*
 

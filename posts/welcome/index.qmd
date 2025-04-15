@@ -1,12 +1,60 @@
----
-title: "Welcome To My Blog"
-author: "Tristan O'Malley"
-date: "2025-03-25"
-categories: [news]
----
+## A2.
 
-This is the first post in a Quarto blog. Welcome!
+------------------------------------------------------------------------
 
-![](thumbnail.jpg)
+<button>[MudraNet]{.button_top}</button>
 
-Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+------------------------------------------------------------------------
+
+Aadil Tanwir, Naman Rajoria, Rayna Singh, Soumya Saboo, Sriharshitha Bhagvati
+
+:::: <iframe src="https://editor.p5js.org/rayna20singh20/full/QCes-2bBh" width="800" height="600" style="border: none;">
+
+</iframe>
+
+:::
+
+[Download Trial ZIP file](assets/triaL_nn.zip)
+
+[Download Train ZIP file](assets/train_nn.zip)
+
+[Download Test ZIP file](assets/test_nn.zip)
+
+Our a2 explores how machine learning can recognize five classical mudras using hand gesture detection, and play a specific song for each one.
+
+*Process*
+
+We started by collecting images for each mudra. It was honestly tricky because some friends found it hard to pose like, they literally couldn’t bend their fingers that way.
+
+While researching how to train a model using images, we first came across TensorFlow. Then we found ml5.js was built on top of it. Arvind told us TensorFlow might be too complicated for us right now, so we went ahead with ml5.js.
+
+Before jumping into handpose, we also tried out Feature Extractor with MobileNet. Feature Extractor uses MobileNet, which is a pre-trained ML model. After some trial and error and getting lost a bit, we sat down and made a proper step-by-step list to get clarity:
+
+1.  Finish clicking and labeling all the images using our naming format.
+2.  Use Python to generate a CSV with image paths and labels.
+3.  Use a JS sketch to extract 21 keypoints for each image and generate a new CSV.
+4.  Train the model using this second CSV.
+5.  Test the model with webcam input.
+6.  Add a song trigger for each mudra.
+
+Handpose detection on a single image worked perfectly we were able to extract 21 points and got excited that we could download a CSV and it was actually working.
+
+Creating the first CSV using Python was pretty simple.
+
+The challenge started when we wrote a JS sketch to read that CSV and output the 21 keypoints for all the images. Initially, it was only giving us values for one image, or just the headings (x1, y1... x21, y21, label) but no actual values. We figured this was because the function to read all rows was in preload(), which runs too early the model takes time to train and wasn’t ready yet, so it only had time to process the first row. Once we moved that part to setup(), everything worked fine and we got the full CSV with coordinates. Another small mistake was that we were usign an older ml5js verson and that was causing a few errors.
+
+Training
+
+A few images just wouldn’t get detected, especially ones where the hands had paint or black charcoal. We had to delete those.
+
+All our training and testing so far was with our own dataset and images. So the next step was to combine other teams’ CSVs and train the model together with all of them, then link the mudras to songs.
+
+When we trained just using our team’s images, everything worked fine. But once we started combining datasets, label issues came up.
+
+For example, "Arala" vs "arala" were treated as different classes, same with "katakamukha" vs "kataka-mukha". While combining, we also saw that the pixel value ranges were totally different. One group had values ranging from 500 to 1000, while ours was more like 160 to 300. That’s when we realized we’d need to normalize the values before training.
+
+Trying varying epochs: 100 to 150 was enough for the samples that we have. We tried to understand the loss graph and we used it like a guide to find the sweet spot between the underfitting and overfitting. Epochs and batch size - It happens automatically if we don’t specify, and we didn’t do that because ml5 internally passes control to TensorFlow.js which sets a default batch size of 32.
+
+![](performance.JPG)
+
+Once we sorted all of that, the last step was adding the songs.

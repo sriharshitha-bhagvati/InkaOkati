@@ -1,21 +1,17 @@
 ---
-title: "Post With Code"
-author: "Harlow Malloc"
-date: "2025-03-28"
-categories: [news, code, analysis]
-image: "image.jpg"
+title: "A1"
+author: "Sriharshitha Bhagvati"
+date: "2025-04-25"
+categories: [blog]
+image: "garden.png"
 ---
 
-This is a post with executable code.
-
-```{r}
-1 + 1
-```
-
-goooooo gooo gaaa gaaa
+This interactive p5.js project brings a lively spring scene to life with animated bees, falling petals, fractal cherry trees, spiral flowers, drifting clouds, and a moving sun. Combining generative patterns and nature-inspired elements, it creates a whimsical garden that evolves continuously with time.
 
 ::: {#p5-container}
-<iframe src="https://editor.p5js.org/sriharshitha/full/ey9Wnqo31">
+<iframe src="https://editor.p5js.org/sriharshitha/full/VymT0Gh7H" width="90%" height="700px" style="border: none; display: block; margin: 0 auto;">
 
 </iframe>
 :::
+
+Concept Note

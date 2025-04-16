@@ -26,8 +26,7 @@ While researching how to train a model using images, we first came across Tensor
 
 Before jumping into handpose, we also tried out Feature Extractor with MobileNet. Feature Extractor uses MobileNet, which is a pre-trained ML model. After some trial and error and getting lost a bit, we sat down and made a proper step-by-step list to get clarity:
 
-<!-- 1.  Finish clicking and labeling all the images using our naming format. -->
-
+1.  Finish clicking and labeling all the images using our naming format.
 2.  Use Python to generate a CSV with image paths and labels.
 3.  Use a JS sketch to extract 21 keypoints for each image and generate a new CSV.
 4.  Train the model using this second CSV.

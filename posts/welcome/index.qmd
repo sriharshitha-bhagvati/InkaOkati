@@ -6,8 +6,6 @@ categories: [blog]
 image: "thumbnail.png"
 ---
 
-
-
 Our A2 explores how machine learning can recognize five classical mudras using hand gesture detection, and play a specific song for each one.
 
 :::: <iframe src="https://editor.p5js.org/rayna20singh20/full/QCes-2bBh" width="800" height="600" style="border: none;">
@@ -29,6 +27,7 @@ While researching how to train a model using images, we first came across Tensor
 Before jumping into handpose, we also tried out Feature Extractor with MobileNet. Feature Extractor uses MobileNet, which is a pre-trained ML model. After some trial and error and getting lost a bit, we sat down and made a proper step-by-step list to get clarity:
 
 <!-- 1.  Finish clicking and labeling all the images using our naming format. -->
+
 2.  Use Python to generate a CSV with image paths and labels.
 3.  Use a JS sketch to extract 21 keypoints for each image and generate a new CSV.
 4.  Train the model using this second CSV.
@@ -56,3 +55,9 @@ Trying varying epochs: 100 to 150 was enough for the samples that we have. We tr
 ![](performance.JPG)
 
 Once we sorted all of that, the last step was adding the songs.
+
+*References*
+
+[Getting started with ml5js with Erik Katerborg](https://medium.com/aixdesign/getting-started-with-ml5-js-tutorial-part-iii-yoga-pose-detection-8b4609f122ab)
+
+[Image Classification with ml5.js with Dan Shiffman Katerborg](https://www.youtube.com/watch?v=pbjR20eTLVs&t=33s)

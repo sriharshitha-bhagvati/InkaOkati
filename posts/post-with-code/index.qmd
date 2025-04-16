@@ -14,4 +14,3 @@ This interactive p5.js project brings a lively spring scene to life with animate
 </iframe>
 :::
 
-Concept Note

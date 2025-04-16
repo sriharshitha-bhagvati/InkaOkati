@@ -164,8 +164,8 @@ ul.task-list li input[type="checkbox"] {
 <p>We started by collecting images for each mudra. It was honestly tricky because some friends found it hard to pose like, they literally couldn’t bend their fingers that way.</p>
 <p>While researching how to train a model using images, we first came across TensorFlow. Then we found ml5.js was built on top of it. Arvind told us TensorFlow might be too complicated for us right now, so we went ahead with ml5.js.</p>
 <p>Before jumping into handpose, we also tried out Feature Extractor with MobileNet. Feature Extractor uses MobileNet, which is a pre-trained ML model. After some trial and error and getting lost a bit, we sat down and made a proper step-by-step list to get clarity:</p>
-<ol type="1">
-<li>Finish clicking and labeling all the images using our naming format.</li>
+<!-- 1.  Finish clicking and labeling all the images using our naming format. -->
+<ol start="2" type="1">
 <li>Use Python to generate a CSV with image paths and labels.</li>
 <li>Use a JS sketch to extract 21 keypoints for each image and generate a new CSV.</li>
 <li>Train the model using this second CSV.</li>

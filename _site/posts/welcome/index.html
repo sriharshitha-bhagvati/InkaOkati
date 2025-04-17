@@ -164,7 +164,12 @@ ul.task-list li input[type="checkbox"] {
 <p>We started by collecting images for each mudra. Honestly, it wasn’t easy, some people struggled to hold the poses correctly. Their fingers wouldn’t bend the right way, and we had to guide them through the gestures.</p>
 <p>While researching how to train a model using images, we first came across TensorFlow. Then we found ml5.js was built on top of it. Arvind told us TensorFlow might be too complicated for us right now, so we went ahead with ml5.js. We also briefly tested FeatureExtractor using MobileNet, a pre-trained convolutional neural network. While that worked well for basic image classification, it wasn’t ideal for our keypoint-based approach.</p>
 <p>Our process became more structured after we broke it down step by step:</p>
-<p>1 Click and label all mudra images using our naming format. 2 Use Python to generate a CSV of file paths and mudra labels. 3 Use a JavaScript sketch to extract 21 keypoints using handpose. 4 Save those as a second CSV with 42 values (x, y for each keypoint). 5 Train the model using ml5’s NeuralNetwork class. 6 Trigger specific audio clips based on predictions.</p>
+<p>1 Click and label all mudra images using our naming format.</p>
+<p>2 Use Python to generate a CSV of file paths and mudra labels.</p>
+<p>3 Use a JavaScript sketch to extract 21 keypoints using handpose.</p>
+<p>4 Save those as a second CSV with 42 values (x, y for each keypoint).</p>
+<p>5 Train the model using ml5’s NeuralNetwork class.</p>
+<p>6 Trigger specific audio clips based on predictions.</p>
 <p>We were thrilled when handpose detection worked on a single image. Seeing 21 points plotted and successfully exported to a CSV felt like a major win. The real challenge came when we tried to extract keypoints from multiple images. Initially, only the first image would return valid landmark data or in some runs, just the header row appeared in the output CSV. After some debugging, we realized the handpose model was being called before it had fully loaded. We had placed the loop logic inside preload(), which runs before asynchronous models like ml5.handpose() are ready. Once we moved the loop and prediction logic into setup() and ensured it only ran after the model had finished loading, all images were processed correctly.</p>
 <p>We also ran into silent failures because we were using an older version of ml5.js. Updating to v0.6.0 solved most of these issues. All of this was done using just our own dataset—and by the end of it, we had a clean, functioning CSV and a working model that could accurately detect our mudras. It gave us a solid foundation before moving on to combining data from other teams.</p>
 <p>Merging datasets from other teams introduced a few complications:</p>

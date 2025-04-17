@@ -27,10 +27,15 @@ While researching how to train a model using images, we first came across Tensor
 Our process became more structured after we broke it down step by step:
 
 1 Click and label all mudra images using our naming format.
+
 2 Use Python to generate a CSV of file paths and mudra labels.
+
 3 Use a JavaScript sketch to extract 21 keypoints using handpose.
+
 4 Save those as a second CSV with 42 values (x, y for each keypoint).
+
 5 Train the model using ml5's NeuralNetwork class.
+
 6 Trigger specific audio clips based on predictions.
 
 We were thrilled when handpose detection worked on a single image. Seeing 21 points plotted and successfully exported to a CSV felt like a major win. The real challenge came when we tried to extract keypoints from multiple images. Initially, only the first image would return valid landmark data or in some runs, just the header row appeared in the output CSV. After some debugging, we realized the handpose model was being called before it had fully loaded. We had placed the loop logic inside preload(), which runs before asynchronous models like ml5.handpose() are ready. Once we moved the loop and prediction logic into setup() and ensured it only ran after the model had finished loading, all images were processed correctly.
